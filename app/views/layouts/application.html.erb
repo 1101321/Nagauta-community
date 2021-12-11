@@ -12,49 +12,10 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header class="bg-secondary mb-5">
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        
-        <div class="container">
-          <a class="navbar-brand p-1 text-white" href="/"><span>Bookers</span></a>
-          <% if user_signed_in? %>
-            <p class="text-light p-2 m-0">ようこそ<strong><%= current_user.name %></strong>さん！</p>
-          <% end %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse flex-md-column" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto mb-2">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to 'マイページ', user_path(current_user.id), class: "nav-link text-light" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete,  class: "nav-link text-light" %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログイン", new_user_session_path, class: "nav-link text-light" %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-          
-        </div>
-        
-      </nav>
-    </header>
-    
-    <main>
-    <%= yield %>
-    </main>
-    
-    <footer class="bg-secondary mt-5 py-4">
-    </footer>
-        
+    <%= render 'layouts/header' %>
+      <main>
+        <%= yield %>
+      </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
