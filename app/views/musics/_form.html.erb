@@ -1,0 +1,13 @@
+<%= form_with model:music,local:true do |f| %>
+  <div class="form-group">
+    <label for="music_title">楽曲名</label>
+    <%= f.text_field :title, class: "form-control music_title" %>
+  </div>
+  <div class="form-group">
+    <label for="music_opinion">楽曲説明</label>
+    <%= f.text_area :body, class: "form-control music_body" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn' %>
+  </div>
+<% end %>
