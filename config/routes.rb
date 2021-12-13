@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
 
   #楽曲(music)
-  resources :musics, only: [:create, :index, :show, :edit, :update, :destroy]
-  get '/musics' => 'musics#new', as: 'new_music'
+  resources :musics, only: [:create, :index, :show, :edit, :update, :destroy, :new]
 
   ##ユーザー(users)
   resources :users, only: [:show, :index, :edit, :update]
