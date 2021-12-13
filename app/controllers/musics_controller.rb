@@ -1,5 +1,9 @@
 class MusicsController < ApplicationController
 
+  def new
+    @music = Music.new
+  end
+
   def create
     @music = Music.new(music_params)
     @music.user_id = current_user.id
