@@ -12,11 +12,11 @@
   </tr>
   <tr>
     <th>フォロー</th>
-    <th></th>
+    <th><%= link_to "#{user.followings.count}", user_followings_path(user.id), class: "btn btn-default" %></th>
   </tr>
   <tr>
     <th>フォロワー</th>
-    <th></th>
+    <th><%= link_to "#{user.followers.count}", user_followers_path(user.id), class: "btn btn-default" %></th>
   </tr>
 </table>
 
@@ -25,7 +25,7 @@
     <% if current_user.following?(user) %>
       <td><%= link_to "フォロー中", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-dark btn-block" %></td>
     <% else %>
-      <td><%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-dark btn-block" %></td>
+      <td><%= link_to "＋フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-dark btn-block" %></td>
     <% end %>
   <% end %>
 </div>

@@ -15,7 +15,7 @@
         </div>
       <% end %>
       
-      <h2 class="mt-5"><strong><%= @user.name %></strong>さんの楽曲一覧</h2>
+      <h2 class="mt-3"><strong><%= @user.name %></strong>さんの楽曲一覧</h2>
       <table class="table">
         <thead>
           <tr>
@@ -33,7 +33,7 @@
                   <%= attachment_image_tag music.user, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
                 <% end %>
               </td>
-              <td><%= link_to @user.name, user_path(music.user.id) %></td>
+              <td><%= @user.name %></td>
               <td><%= link_to music.title, music_path(music) %></td>
               <td><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
             </tr>
