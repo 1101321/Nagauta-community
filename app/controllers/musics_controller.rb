@@ -13,7 +13,7 @@ class MusicsController < ApplicationController
       redirect_to music_path(@music.id)
     else
       @musics = Music.all
-      render :index
+      render :new
     end
   end
 
