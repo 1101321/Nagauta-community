@@ -17,6 +17,8 @@ class MusicsController < ApplicationController
   end
 
   def index
+    @musics = Music.all
+    @user = current_user
   end
 
   def show
