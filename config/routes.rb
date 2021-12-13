@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :musics, only: [:create, :index, :show, :edit, :update, :destroy, :new]
 
   ##ユーザー(users)
-  resources :users, only: [:show, :index, :edit, :update]
+  resources :users, only: [:show, :index, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings'
+    get 'followers' => 'relationships#followers'
+  end
 
 end
