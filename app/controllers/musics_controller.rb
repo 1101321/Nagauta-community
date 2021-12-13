@@ -2,6 +2,7 @@ class MusicsController < ApplicationController
 
   def new
     @music = Music.new
+    @user = current_user
   end
 
   def create
