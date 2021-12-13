@@ -27,10 +27,19 @@ class MusicsController < ApplicationController
   end
 
   def edit
+    @music = Music.find(params[:id])
+    @user = current_user
   end
 
   def update
+    @music = Music.find(params[:id])
+    if @music.update(music_params)
+      redirect_to music_path(@music.id)
+    else
+      render :edit
+    end
   end
+  
 
   def destroy
   end
