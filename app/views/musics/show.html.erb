@@ -11,11 +11,17 @@
       <table class="table">
         <tr>
           <th>楽曲</th>
-          <td><%= link_to @music.title, edit_music_path(@music) %></td>
+          <th>楽曲説明</th>
+          <th></th>
+          <th></th>
         </tr>
         <tr>
-          <th>楽曲説明</th>
+          <td><%= link_to @music.title %></td>
           <td><%= @music.body %></td>
+          <% if @music.user == current_user %>
+            <td><%= link_to '編集', edit_music_path(@music) %></td>
+            <td><%= link_to '削除', music_path(@music), method: :delete %></td>
+          <% end %>
         </tr>
       </table>
     </div>
