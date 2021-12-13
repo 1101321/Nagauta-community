@@ -11,7 +11,7 @@
       <table class="table">
         <tr>
           <th>楽曲</th>
-          <td><%= @music.title %></td>
+          <td><%= link_to @music.title, edit_music_path(@music) %></td>
         </tr>
         <tr>
           <th>楽曲説明</th>
