@@ -1,6 +1,7 @@
 class Music < ApplicationRecord
 
   belongs_to :user
+  has_many :music_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
   def favorited_by?(user)
