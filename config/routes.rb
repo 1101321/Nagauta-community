@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   #楽曲(music)
   resources :musics, only: [:create, :index, :show, :edit, :update, :destroy, :new] do
     resource :favorites, only: [:create, :destroy]
+    resources :music_comments, only: [:create, :destroy]
   end
 
   ##ユーザー(users)
