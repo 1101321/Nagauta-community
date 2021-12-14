@@ -14,6 +14,7 @@
           <th></th>
           <th>楽曲</th>
           <th>楽曲説明</th>
+          <th></th>
           <th>投稿日時</th>
           <% if @music.user == current_user %>
             <th></th>
@@ -29,7 +30,15 @@
           <td><%= link_to @music.user.name, user_path(@music.user.id) %></td>
           <td><%= @music.title %></td>
           <td><%= @music.body %></td>
+          
+          <% if @music.favorited_by?(current_user) %>
+            <td><%= link_to @music.favorites.count, music_favorites_path(@music), method: :delete, class: "fas fa-heart heart_red text-danger" %></td>
+          <% else %>
+            <td><%= link_to @music.favorites.count, music_favorites_path(@music), method: :post,  class: "fas fa-heart heart_blue" %></td>
+          <% end %>
+          
           <td><%= @music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          
           <% if @music.user == current_user %>
             <td><%= link_to '編集', edit_music_path(@music) %></td>
             <td><%= link_to '削除', music_path(@music), method: :delete %></td>
