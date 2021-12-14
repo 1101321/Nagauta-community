@@ -28,13 +28,7 @@
               </td>
               <td><%= link_to music.user.name, user_path(music.user.id) %></td>
               <td><%= link_to music.title, music_path(music) %></td>
-              
-              <% if music.favorited_by?(current_user) %>
-                <td><%= link_to music.favorites.count, music_favorites_path(music), method: :delete, class: "fas fa-heart heart_red text-danger" %></td>
-              <% else %>
-                <td><%= link_to music.favorites.count, music_favorites_path(music), method: :post,  class: "fas fa-heart heart_blue" %></td>
-              <% end %>
-              
+              <%= render "favorites/favorite", music: music %>
               <td><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
             </tr>
           <% end %>
