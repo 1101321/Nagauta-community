@@ -25,6 +25,7 @@ class MusicsController < ApplicationController
   def show
     @music = Music.find(params[:id])
     @user = current_user
+    @music_comment = MusicComment.new
   end
 
   def edit
