@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
 
   #楽曲(music)
-  resources :musics, only: [:create, :index, :show, :edit, :update, :destroy, :new]
+  resources :musics, only: [:create, :index, :show, :edit, :update, :destroy, :new] do
+    resource :favorites, only: [:create, :destroy]
+  end
 
   ##ユーザー(users)
   resources :users, only: [:show, :index, :edit, :update] do
