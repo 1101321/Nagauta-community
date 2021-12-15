@@ -5,6 +5,7 @@ class SearchesController < ApplicationController
     @value = params["search"]["value"]          #条件
     @how = params["search"]["how"]              #検索したいモデル
     @dates = search_for(@how, @model, @value)
+    @user = current_user
   end
 
   private
@@ -22,7 +23,7 @@ class SearchesController < ApplicationController
   def partical(model, value)
     if model == 'user'
       User.where("name LIKE ?", "%#{value}%")
-    elsif model == 'book'
+    elsif model == 'music'
       Music.where("title LIKE ?", "%#{value}%")
     end
   end
