@@ -29,7 +29,7 @@
               </td>
               <td><%= link_to music.user.name, user_path(music.user.id) %></td>
               <td><%= link_to music.title, music_path(music) %></td>
-              <%= render "favorites/favorite", music: music %>
+              <td id="favorite_buttons_<%= music.id %>"><%= render "favorites/favorite", music: music %></td>
               <td>コメント(<%= music.music_comments.count %>)</td>
               <td><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
             </tr>
