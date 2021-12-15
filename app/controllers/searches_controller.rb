@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
     if model == "user"
       User.where(name: value)
     elsif model == "music"
-      Book.where(title: value)
+      Music.where(title: value)
     end
   end
 
@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
     if model == 'user'
       User.where("name LIKE ?", "%#{value}%")
     elsif model == 'book'
-      Book.where("title LIKE ?", "%#{value}%")
+      Music.where("title LIKE ?", "%#{value}%")
     end
   end
 
