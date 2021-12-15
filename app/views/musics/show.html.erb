@@ -40,30 +40,8 @@
         </tr>
       </table>
 
-      <table class="table table-light">
-        <thead>
-          <tr>
-            <th>コメント(<%= @music.music_comments.count %>)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @music.music_comments.each do |music_comment| %>
-            <% music_comment_user = music_comment.user %>
-            <tr>
-              <td>
-                <%= link_to user_path(music_comment.user.id) do %>
-                  <%= attachment_image_tag music_comment.user, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
-                  <%= music_comment_user.name %>
-                <% end %>
-              </td>
-              <td><%= music_comment.comment %></td>
-              <td><%= music_comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-              <% if current_user == music_comment_user %>
-              	<td><%= link_to '削除', music_music_comment_path(music_comment.music_id, music_comment.id), method: :delete %></td>
-            	<% end %>
-            </tr>
-          <% end %>
-        </tbody>
+      <table id="comments_area_<%= @music.id %>" class="table table-light">
+        <%= render 'music_comments/index', music: @music %>
       </table>
 
       <div class="comment-form">
