@@ -1,0 +1,2 @@
+$("#comments_area_<%= @music.id %>").html("<%= j(render 'index', music: @music, comment: @comment ) %>");
+$("textarea").val('');

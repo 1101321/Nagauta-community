@@ -45,7 +45,7 @@
       </table>
 
       <div class="comment-form">
-        <%= form_with(model:[@music, @music_comment], local: true) do |f| %>
+        <%= form_with(model:[@music, @music_comment], remote: true) do |f| %>
           <%= f.text_area :comment, cols:'100', rows:'5' %></br>
           <%= f.submit "送信" %>
         <% end %>
