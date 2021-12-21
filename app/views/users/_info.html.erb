@@ -18,6 +18,9 @@
     <th>フォロワー</th>
     <th><%= link_to "#{user.followers.count}", user_followers_path(user.id), class: "btn btn-default" %></th>
   </tr>
+  <tr>
+    <th><%= link_to "いいねした楽曲", user_favorites_path(user.id), class:"text-dark" %></th>
+  </tr>
 </table>
 
 <div class="row mt-3">
