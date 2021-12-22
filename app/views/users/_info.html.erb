@@ -3,33 +3,32 @@
     <%= attachment_image_tag(user, :profile_image, size: '100x100', fallback: "no_image.jpg", class:"rounded-circle img-thumbnail") %>
   </tr>
   <tr>
-    <th>名前</th>
-    <td><%= user.name %></td>
+    <th><i class="fas fa-user-circle"></i>名前</th>
+    <th><%= user.name %></th>
   </tr>
   <tr>
-    <th>自己紹介</th>
-    <td><%= user.introduction %></td>
+    <th><i class="far fa-comment-dots"></i>自己紹介</th>
+    <th><%= user.introduction %></th>
   </tr>
+    <th><%= link_to "フォロー#{user.followings.count}", user_followings_path(user.id), class: "text-dark" %></th>
+    <th><%= link_to "フォロワー#{user.followers.count}", user_followers_path(user.id), class: "text-dark" %></th>
+  </tr>
+  <% if @user == current_user %>
   <tr>
-    <th>フォロー</th>
-    <th><%= link_to "#{user.followings.count}", user_followings_path(user.id), class: "btn btn-default" %></th>
+    <th>
+      <i class="fas fa-heart"></i><%= link_to "いいね", user_favorites_path(user.id), class: "text-dark" %>
+    </th>
   </tr>
-  <tr>
-    <th>フォロワー</th>
-    <th><%= link_to "#{user.followers.count}", user_followers_path(user.id), class: "btn btn-default" %></th>
-  </tr>
-  <tr>
-    <th><%= link_to "いいねした楽曲", user_favorites_path(user.id), class:"text-dark mb-5" %></th>
-  </tr>
+  <% end %>
 </table>
 
 <div class="row mt-5">
-  <h5>検索フォーム</h5>
+  <h5><i class="fas fa-search pr-1"></i><strong>検索フォーム</strong></h5>
   <%= form_with url:search_path, method: :get, local: true do |f| %>
     <%= f.select 'search[model]', options_for_select({ "ユーザ" => "user", "楽曲" => "music" }) %>
     <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "部分一致" => "partical"  }) %>
     <%= f.text_field 'search[value]', class: "mt-3 mb-3" %>
-    <%= f.submit :"検索", class: "btn btn-secondary" %>
+    <%= f.submit :"検索", class: "btn btn-outline-dark" %>
   <% end %>
 </div>
 
