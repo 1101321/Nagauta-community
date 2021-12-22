@@ -15,12 +15,61 @@
  */
  @import "bootstrap";
  
-.bg-image {
+.bg-top-image {
   width: 100%;
-  min-height: 500px;
+  min-height: 450px;
   background-image: url(篠笛.jpeg);
   background-size: cover;
   background-position: center center;
   padding: 10px;
   background-color: rgba( 204, 255, 204, 0.55 );
+}
+
+.bg-image1 {
+  width: 100%;
+  min-height: 350px;
+  background-image: url(尺八.jpeg);
+  background-size: cover;
+  background-position: center center;
+  padding: 10px;
+  background-color: rgba( 204, 255, 204, 0.55 ); 
+}
+
+.bg-image2 {
+  width: 100%;
+  min-height: 350px;
+  background-image: url(太鼓.jpeg);
+  background-size: cover;
+  background-position: center center;
+  padding: 10px;
+  background-color: rgba( 204, 255, 204, 0.55 ); 
+}
+
+.bg-image3 {
+  width: 100%;
+  min-height: 350px;
+  background-image: url(箏.jpeg);
+  background-size: cover;
+  background-position: center center;
+  padding: 10px;
+  background-color: rgba( 204, 255, 204, 0.55 ); 
+}
+
+.bg-image4 {
+  width: 100%;
+  min-height: 350px;
+  background-image: url(箏2.jpeg);
+  background-size: cover;
+  background-position: center center;
+  padding: 10px;
+  background-color: rgba( 204, 255, 204, 0.55 ); 
+}
+
+.bg-image5 {
+  width: 100%;
+  min-height: 350px;
+  background-image: url(三味線.jpeg);
+  background-size: cover;
+  background-position: center center;
+  padding: 10px;
 }
