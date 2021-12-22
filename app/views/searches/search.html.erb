@@ -5,41 +5,42 @@
       <%= render 'users/info', user: @user %>
     </div>
     
-    <div class="col-md-8">
+    <div class="col-md-7">
       <% if @model == "user" %>
         <h2>ユーザー： <%= @value %> の検索結果</h2>
         <div class="container mt-5">
-        <table class="table table-light">
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @dates.each do |user| %>
-            <tr>
-              <td>
-                <%= link_to user_path(user.id) do %>
-                  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
+          <table class="table table-light">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @dates.each do |user| %>
+              <tr>
+                <td>
+                  <%= link_to user_path(user.id) do %>
+                    <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
+                  <% end %>
+                </td>
+                <td><%= link_to user.name, user_path(user.id), class:"text-dark" %></td>
+                <td><%= user.introduction %></td>
+                <% unless user == current_user %>
+                  <% if current_user.following?(user) %>
+                    <td><%= link_to "　フォロー中　", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-dark btn-block" %></td>
+                  <% else %>
+                    <td><%= link_to "＋フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-dark btn-block" %></td>
+                  <% end %>
                 <% end %>
-              </td>
-              <td><%= link_to user.name, user_path(user.id), class:"text-dark" %></td>
-              <td><%= user.introduction %></td>
-              <% unless user == current_user %>
-                <% if current_user.following?(user) %>
-                  <td><%= link_to "　フォロー中　", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-dark btn-block" %></td>
-                <% else %>
-                  <td><%= link_to "＋フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-dark btn-block" %></td>
-                <% end %>
+              </tr>
               <% end %>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       <% end %>
       
       <% if @model == "music" %>
@@ -70,6 +71,16 @@
         </div>
       <% end %>
     </div>
+    
+    <div class="col-md-2">
+      <h5><i class="fas fa-search pr-1"></i><strong>検索フォーム</strong></h5>
+      <%= form_with url:search_path, method: :get, local: true do |f| %>
+        <%= f.select 'search[model]', options_for_select({ "ユーザ" => "user", "楽曲" => "music" }) %>
+        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "部分一致" => "partical"  }) %>
+        <%= f.text_field 'search[value]', class: "mt-3 mb-3" %>
+        <%= f.submit :"検索", class: "btn btn-outline-dark" %>
+      <% end %>      
+    </div>     
   
   </div>
 </div>
