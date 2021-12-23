@@ -22,6 +22,11 @@
   <% end %>
 </table>
 
+<% if @user == current_user %>
+  <div class="row mt-3">
+    <%= link_to 'マイページへ', user_path(current_user.id), class: "btn btn-outline-dark btn-block" %>
+  </div>
+<% end %>
 
 <div class="row mt-3">
   <% unless user == current_user %>
