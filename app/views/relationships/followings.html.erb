@@ -1,10 +1,10 @@
 <div class="container px-5 px-sm-0 mt-3">
   <div class="row">
-    
+
     <div class="col-md-3">
       <%= render 'users/info', user: @user %>
     </div>
-    
+
     <div class="col-md-7">
       <h2>フォロー</h2>
       <table class="table table-light">
@@ -38,22 +38,16 @@
           <% end %>
         </tbody>
       </table>
-      
+
       <div class="mx-auto mt-3">
         <%= paginate @users, theme: 'twitter-bootstrap-4' %>
-      </div>      
-      
+      </div>
+
     </div>
-    
+
     <div class="col-md-2">
-      <h5><i class="fas fa-search pr-1"></i><strong>検索フォーム</strong></h5>
-      <%= form_with url:search_path, method: :get, local: true do |f| %>
-        <%= f.select 'search[model]', options_for_select({ "ユーザ" => "user", "楽曲" => "music" }) %>
-        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "部分一致" => "partical"  }) %>
-        <%= f.text_field 'search[value]', class: "mt-3 mb-3" %>
-        <%= f.submit :"検索", class: "btn btn-outline-dark" %>
-      <% end %>      
-    </div>    
-    
+      <%= render 'searches/form' %>
+    </div>
+
   </div>
 </div>

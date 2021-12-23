@@ -6,30 +6,26 @@
     </div>
 
     <div class="col-md-7">
-      <h2 class="text-center mt-3">楽曲投稿フォーム</h2>
-      <%= form_with model:@music,local:true do |f| %>
-        <div class="form-group">
-          <label for="music_title">楽曲名</label>
-          <%= f.text_field :title, class: "form-control music_title" %>
-        </div>
-        <div class="form-group">
-          <label for="music_opinion">楽曲説明・好きなポイント</label>
-          <%= f.text_area :body, class: "form-control music_body" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "投稿する", class: "btn btn-outline-success" %>
-        </div>
-      <% end %>
+      <h2 class="text-center mt-3 mb-5">楽曲投稿フォーム</h2>
+      <div class="form">
+        <%= form_with model:@music,local:true do |f| %>
+          <div class="form-group">
+            <h5 for="music_title">楽曲名</h5>
+            <%= f.text_field :title, class: "form-control music_title" %>
+          </div>
+          <div class="form-group">
+            <h5 for="music_opinion">楽曲説明・好きなポイント</h5>
+            <%= f.text_area :body, class: "form-control music_body" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "投稿する", class: "btn btn-outline-success" %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-md-2">
-      <h5><i class="fas fa-search pr-1"></i><strong>検索フォーム</strong></h5>
-      <%= form_with url:search_path, method: :get, local: true do |f| %>
-        <%= f.select 'search[model]', options_for_select({ "ユーザ" => "user", "楽曲" => "music" }) %>
-        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "部分一致" => "partical"  }) %>
-        <%= f.text_field 'search[value]', class: "mt-3 mb-3" %>
-        <%= f.submit :"検索", class: "btn btn-outline-dark" %>
-      <% end %>      
+      <%= render 'searches/form' %>
     </div> 
 
   </div>

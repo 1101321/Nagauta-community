@@ -16,7 +16,7 @@
             <ul class="navbar-nav ml-auto mb-2">
               <% if user_signed_in? %>
                 <li class="nav-item mr-1">
-                  <%= link_to '概要', about_path, class: "nav-link text-dark fas fa-user-circle" %>
+                  <%= link_to '概要', about_path, class: "nav-link text-dark fas fa-star" %>
                 </li>
                 <li class="nav-item mr-1">
                   <%= link_to 'ユーザ一覧', users_path, class: "nav-link text-dark fas fa-users" %>
@@ -31,6 +31,9 @@
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete,  class: "nav-link text-dark fas fa-sign-out-alt" %>
                 </li>
               <% else %>
+                <li class="nav-item mr-1">
+                  <%= link_to '概要', about_path, class: "nav-link text-dark fas fa-star" %>
+                </li>              
                 <li class="nav-item mr-1">
                   <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark fas fa-user-plus" %>
                 </li>

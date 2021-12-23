@@ -5,7 +5,7 @@
       <%= render 'users/info', user: @user %>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
       <h2></h2>
       <table class="table table-light">
         <tr>
@@ -50,12 +50,16 @@
         <%= render 'music_comments/index', music: @music %>
       </table>
 
-      <div class="comment-form">
+      <div class="comment-form mb-5">
         <%= form_with(model:[@music, @music_comment], remote: true) do |f| %>
-          <%= f.text_area :comment, cols:'100', rows:'5' %></br>
-          <%= f.submit "送信" %>
+          <%= f.text_area :comment, cols:'80', rows:'5' %></br>
+          <%= f.submit "送信", class: "btn btn-outline-dark" %>
         <% end %>
       </div>
+    </div>
+    
+    <div class="col-md-2">
+      <%= render 'searches/form' %>
     </div>
 
 </div>

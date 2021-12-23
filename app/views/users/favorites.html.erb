@@ -14,21 +14,21 @@
             <div class="col">
               <div class="card border-secondary mb-3 mx-auto">
                 <div class="card-body">
-                  
+
                 <div class="card-profile mx-auto">
                   <%= link_to user_path(music.user.id) do %>
                     <%= attachment_image_tag music.user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
                   <% end %>
                   <%= link_to music.user.name, user_path(music.user.id), class:"text-dark font-weight-bold" %>
                 </div>
-                
+
                 <h5 class="card-title mt-3"><%= link_to music.title, music_path(music), class:"text-dark d-flex align-items-end" %></h5>
                 <div class="card-text d-flex flex-row justify-content-around">
                   <div id="favorite_buttons_<%= music.id %>"><%= render "favorites/favorite", music: music %></div>
                   <div><i class="far fa-comment"></i><%= music.music_comments.count %></div>
                   <div class="music-created mt-2"><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
                 </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -37,16 +37,10 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-md-2">
-      <h5><i class="fas fa-search pr-1"></i><strong>検索フォーム</strong></h5>
-      <%= form_with url:search_path, method: :get, local: true do |f| %>
-        <%= f.select 'search[model]', options_for_select({ "ユーザ" => "user", "楽曲" => "music" }) %>
-        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "部分一致" => "partical"  }) %>
-        <%= f.text_field 'search[value]', class: "mt-3 mb-3" %>
-        <%= f.submit :"検索", class: "btn btn-outline-dark" %>
-      <% end %>      
-    </div>     
+      <%= render 'searches/form' %>
+    </div>
 
   </div>
 </div>

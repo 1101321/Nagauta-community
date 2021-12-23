@@ -25,6 +25,12 @@
   background-color: rgba( 204, 255, 204, 0.55 );
 }
 
+.top-container{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .bg-image1 {
   width: 100%;
   min-height: 350px;
@@ -65,15 +71,6 @@
   background-color: rgba( 204, 255, 204, 0.55 );
 }
 
-.bg-image5 {
-  width: 100%;
-  min-height: 350px;
-  background-image: url(三味線.jpeg);
-  background-size: cover;
-  background-position: center center;
-  padding: 10px;
-}
-
 .card {
   display: flex;
 }
@@ -91,4 +88,9 @@
 .card-text {
   flex-grow: 1;
   margin-top: auto;
+}
+
+.form {
+  margin-left: 50px;
+  width: 80%;
 }
