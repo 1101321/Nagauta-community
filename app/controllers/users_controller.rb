@@ -27,13 +27,13 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def favorites
     @user = current_user
      favorites = Favorite.where(user_id: current_user.id).pluck(:music_id)
     @favorite_list = Music.find(favorites)
   end
-  
+
   private
 
   def user_params

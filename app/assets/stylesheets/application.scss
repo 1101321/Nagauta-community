@@ -71,6 +71,30 @@
   background-color: rgba( 204, 255, 204, 0.55 );
 }
 
+.bg-image5 {
+  width: 100%;
+  min-height: 150px;
+  background-image: url(三味線.jpeg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-image6 {
+  width: 100%;
+  min-height: 150px;
+  background-image: url(箏3.jpeg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-image7 {
+  width: 100%;
+  min-height: 150px;
+  background-image: url(尺八2.jpeg);
+  background-size: cover;
+  background-position: center center;
+}
+
 .card {
   display: flex;
 }
