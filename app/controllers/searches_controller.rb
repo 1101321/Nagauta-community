@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
     @model = params["search"]["model"]          #検索内容
     @value = params["search"]["value"]          #条件
     @how = params["search"]["how"]              #検索したいモデル
-    @dates = search_for(@how, @model, @value)
+    @dates = search_for(@how, @model, @value).page(params[:page]).per(6)
     @user = current_user
   end
 
