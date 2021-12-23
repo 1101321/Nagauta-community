@@ -18,7 +18,7 @@ class MusicsController < ApplicationController
   end
 
   def index
-    @musics = Music.all
+    @musics = Music.all.page(params[:page]).per(6)
     @user = current_user
   end
 

@@ -13,25 +13,30 @@
           <div class="col">
             <div class="card border-secondary mb-3">
               <div class="card-body">
-                
+
                 <div class="card-profile mx-auto">
                   <%= link_to user_path(music.user.id) do %>
                     <%= attachment_image_tag music.user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
                   <% end %>
                   <%= link_to music.user.name, user_path(music.user.id), class:"text-dark font-weight-bold" %>
                 </div>
-                
+
                 <h5 class="card-title mt-3"><%= link_to music.title, music_path(music), class:"text-dark d-flex align-items-end" %></h5>
                 <div class="card-text d-flex flex-row justify-content-around">
                   <div id="favorite_buttons_<%= music.id %>"><%= render "favorites/favorite", music: music %></div>
                   <div><i class="far fa-comment"></i><%= music.music_comments.count %></div>
                   <div class="music-created mt-2"><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
                 </div>
-                
+
               </div>
             </div>
           </div>
           <% end %>
+          
+          <div class="mx-auto mt-3">
+            <%= paginate @musics, theme: 'twitter-bootstrap-4' %>
+          </div>
+          
         </div>
       </div>
     </div>

@@ -71,6 +71,7 @@ gem 'jquery-rails'
 
 gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 gem 'dotenv-rails'
 group :production do

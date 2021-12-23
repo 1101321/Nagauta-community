@@ -25,7 +25,7 @@
                 <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
               <% end %>
             </td>
-            <td><%= link_to user.name, user_path(user.id) %></td>
+            <td><%= link_to user.name, user_path(user.id), class: "text-dark" %></td>
             <td><%= user.introduction %></td>
             <% unless user == current_user %>
               <% if current_user.following?(user) %>
