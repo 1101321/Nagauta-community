@@ -1,8 +1,8 @@
 <div class="container px-5 px-sm-0 mt-3 mb-3">
   <div class="row">
-    
+
     <div class="col nogutters">
-      
+
       <div class="bg-top-image img-fluid text-light p-5">
         <div class="bg-mask">
           <h1 class="bg-text">ようこそ、<strong>Nagauta community</strong> へ</h1>
@@ -14,38 +14,40 @@
           </p>
         </div>
       </div>
-      
-      <div class="container">
-        <div class="row">
-          <div class="col mb-4">
-            <div class="card mx-auto mt-4">
-              <div class="bg-image1 img-fluid p-5"></div>
+
+      <h2 class="text-center mt-5 mb-5">～新着投稿～</h2>
+      <div class="top-container mb-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-eq-height">
+          <% @musics.each do |music| %>
+          <div class="col">
+            <div class="card border-secondary mb-3">
+              <div class="card-body">
+                <div class="card-profile mx-auto">
+                  <%= link_to user_path(music.user.id) do %>
+                    <%= attachment_image_tag music.user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
+                  <% end %>
+                  <%= link_to music.user.name, user_path(music.user.id), class:"text-dark font-weight-bold" %>
+                </div>
+
+                <h5 class="card-title mx-auto mt-3"><%= link_to music.title, music_path(music), class:"text-dark d-flex align-items-end" %></h5>
+                <div class="card-text d-flex flex-row justify-content-around">
+                  <% if user_signed_in? %>
+                    <div id="favorite_buttons_<%= music.id %>"><%= render "favorites/favorite", music: music %></div>
+                    <div><i class="far fa-comment"></i><%= music.music_comments.count %></div>
+                    <div class="music-created mt-2"><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+                  <% else %>
+                    <div class="music-created mt-2"><%= music.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+                  <% end %>
+                </div>
+
+              </div>
             </div>
           </div>
-          
-          <div class="col mb-4">
-            <div class="card mx-auto mt-4">
-              <div class="bg-image2 img-fluid p-5"></div>
-            </div>
-          </div>
-          
-          <div class="col mb-4">
-            <div class="card mx-auto mt-4">
-              <div class="bg-image3 img-fluid p-5"></div>
-            </div>
-          </div>
-          
-          <div class="col mb-4">
-            <div class="card mx-auto mt-4">
-              <div class="bg-image4 img-fluid p-5"></div>
-            </div>
-          </div>          
+          <% end %>
         </div>
       </div>
-      
-      <div class="bg-image5 img-fluid p-5"></div>      
-      
+
     </div>
-    
+
   </div>
 </div>
