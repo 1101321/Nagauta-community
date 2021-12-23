@@ -7,6 +7,9 @@
 
     <div class="col-md-7">
       <h2 class="text-center mt-3 mb-5">楽曲投稿フォーム</h2>
+
+      <%= render 'layouts/error' %>
+
       <div class="form">
         <%= form_with model:@music,local:true do |f| %>
           <div class="form-group">
@@ -26,7 +29,7 @@
 
     <div class="col-md-2">
       <%= render 'searches/form' %>
-    </div> 
+    </div>
 
   </div>
 </div>

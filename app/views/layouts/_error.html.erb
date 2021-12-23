@@ -1,0 +1,5 @@
+<% if @music.errors.any? %>
+  <div class="text-center text-danger mb-3">
+    <%= @music.errors.count %> 件の入力ミスがあります。
+  </div>
+<% end %>
