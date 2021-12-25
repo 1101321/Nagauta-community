@@ -25,13 +25,13 @@
                 <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %>
               <% end %>
             </td>
-            <td><%= link_to user.name, user_path(user.id), class: "text-dark" %></td>
+            <td class="w-25"><%= link_to user.name, user_path(user.id), class: "text-dark" %></td>
             <td><%= user.introduction %></td>
             <% unless user == current_user %>
               <% if current_user.following?(user) %>
-                <td><%= link_to "　フォロー中　", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-dark btn-block" %></td>
+                <td class="w-25 text-right"><%= link_to "　フォロー中　", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-dark" %></td>
               <% else %>
-                <td><%= link_to "＋フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-dark btn-block" %></td>
+                <td class="w-25 text-right"><%= link_to "＋フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-dark" %></td>
               <% end %>
             <% end %>
           </tr>

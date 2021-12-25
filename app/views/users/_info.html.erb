@@ -3,16 +3,12 @@
     <%= attachment_image_tag(user, :profile_image, size: '100x100', fallback: "no_image.jpg", class:"rounded-circle img-thumbnail") %>
   </tr>
   <tr>
-    <th><i class="fas fa-user-circle"></i>名前</th>
+    <th class="w-50"><i class="fas fa-user-circle"></i>名前</th>
     <th><%= user.name %></th>
   </tr>
   <tr>
     <th><i class="far fa-comment-dots"></i>自己紹介</th>
     <th><%= user.introduction %></th>
-  </tr>
-    <th><%= link_to "フォロー#{user.followings.count}", user_followings_path(user.id), class: "text-dark" %></th>
-    <th><%= link_to "フォロワー#{user.followers.count}", user_followers_path(user.id), class: "text-dark" %></th>
-  </tr>
   <% if @user == current_user %>
   <tr>
     <th>
@@ -20,6 +16,13 @@
     </th>
   </tr>
   <% end %>
+</table>
+
+<table class="table table-light">
+  </tr>
+    <th class="w-50"><%= link_to "フォロー#{user.followings.count}", user_followings_path(user.id), class: "text-dark" %></th>
+    <th class="w-50"><%= link_to "フォロワー#{user.followers.count}", user_followers_path(user.id), class: "text-dark" %></th>
+  </tr>
 </table>
 
 <% if @user == current_user %>

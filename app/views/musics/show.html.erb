@@ -37,12 +37,14 @@
 
       <table class="table table-light">
         <tr>
-          <th>楽曲</th>
+          <th class="w-50 text-center">楽曲</th>
           <td><%= @music.title %></td>
         </tr>
+      </table>
+
+      <table class="table table-light mb-5">
         <tr>
-          <th>楽曲説明・好きなポイント</th>
-          <td><%= @music.body %></td>
+          <td class="w-75"><%= @music.body %></td>
         </tr>
       </table>
 
@@ -57,7 +59,7 @@
         <% end %>
       </div>
     </div>
-    
+
     <div class="col-md-2">
       <%= render 'searches/form' %>
     </div>
