@@ -21,7 +21,7 @@
         <tr>
           <td>
             <%= link_to user_path(@music.user.id) do %>
-              <%= attachment_image_tag @music.user, :profile_image, fallback: "no_image.jpg", size: "40x40", class:"rounded-circle img-thumbnail" %></br>
+              <%= attachment_image_tag @music.user, :profile_image, :fill, 40, 40,  fallback: "no_image.jpg", size: "70x70", class:"rounded-circle img-thumbnail" %></br>
             <% end %>
           </td>
           <td><%= link_to @music.user.name, user_path(@music.user.id), class:"text-dark" %></td>

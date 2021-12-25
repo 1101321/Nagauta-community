@@ -1,6 +1,6 @@
 <table class="table table-light">
   <tr>
-    <%= attachment_image_tag(user, :profile_image, size: '100x100', fallback: "no_image.jpg", class:"rounded-circle img-thumbnail") %>
+    <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, size: "200x200", fallback: "no_image.jpg", class:"rounded-circle img-thumbnail") %>
   </tr>
   <tr>
     <th class="w-50"><i class="fas fa-user-circle"></i>名前</th>
