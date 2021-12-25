@@ -18,7 +18,7 @@
           </div>
           <div class="form-group">
             <h5 for="music_opinion">楽曲説明・好きなポイント</h5>
-            <%= f.text_area :body, class: "form-control music_body" %>
+            <%= f.text_area :body, :size=>"60x10", class: "form-control music_body" %>
           </div>
           <div class="form-group">
             <%= f.submit "投稿する", class: "btn btn-outline-success" %>
