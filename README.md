@@ -25,7 +25,8 @@ TwitterやInstagramなどのSNSで長唄好きの仲間を探してみたこと�
 ・演奏したい楽曲のセッション相手を探したいとき。  
 
 ## 設計書
-<...>
+- テーブル定義書・アプリケーション詳細設計
+- <https://docs.google.com/spreadsheets/d/1pfc0o9eAIcPGmLOH8HDUZq-wrfMapVkiFLijnIWvdc4/edit#gid=0>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1aRT1SLCz8UYXA89PIdtmTawBxz9y2XC7qI-DpdxyMLw/edit#gid=0>
