@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :musics, dependent: :destroy
   has_many :music_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   
   attachment :profile_image
   
