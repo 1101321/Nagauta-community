@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
     # roomに紐づくchatsテーブルのレコードを@chatsに代入。
     @chats = @room.chats
     # room.idを@chatに代入。
-    @chat = Chat.new(room_id @room.id)
+    @chat = Chat.new(room_id: @room.id)
   end
 
   def create
