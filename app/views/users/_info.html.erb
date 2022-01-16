@@ -40,3 +40,11 @@
     <% end %>
   <% end %>
 </div>
+
+<% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+  <div class="row mt-3">
+    <%= link_to chat_path(user.id), class: "btn btn-outline-dark btn-block" do %>
+      <i class="far fa-envelope"></i>メッセージを送る
+    <% end %>
+  </div>
+<% end %>
