@@ -28,7 +28,7 @@ TwitterやInstagramなどのSNSで長唄好きの仲間を探してみたこと�
 - テーブル定義書・アプリケーション詳細設計
 - <https://docs.google.com/spreadsheets/d/1pfc0o9eAIcPGmLOH8HDUZq-wrfMapVkiFLijnIWvdc4/edit#gid=0>
 - ER図
-- <>
+- <https://app.diagrams.net/#G1ujbKzRN_9sDlG5sovVyJLihQshiiSdig>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1aRT1SLCz8UYXA89PIdtmTawBxz9y2XC7qI-DpdxyMLw/edit#gid=0>
